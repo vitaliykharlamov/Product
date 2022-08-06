@@ -12,6 +12,8 @@ $colorGreenBtnBackground: #02897A;
 $colorGreenBtnBackgroundHover: #11B5E4;
 $colorGreenBtnBackgroundActive: #BA68C8;
 $colorLink: #02897A;
+$colorLinkHover: #BA68C8;
+$colorLinkActive: #F03E3D;
 $progressBorderRed: #FF0909;
 $progressBorderViolet: #740A76;
 $progressBorderGreen: #02897A;
@@ -31,11 +33,14 @@ $reviewsName: #02897A;
 $reviewsPosition: #252B42;
 $joinBackground: #02897A;
 $joinColorText: #FFFFFF;
+$socialLinkBackground: #EDFFFC;
+$socialLinkBackgroundHover: #fdf4ff;
+$socialLinkBackgroundActive: #fdf1f1;
 $formInputBorder: #BCD0E5;
 $formInputBorderHover: #11B5E4;
 $formInputBorderActive: #BA68C8;
 
-@mixin greenBtnProperties {
+@mixin buttonProperties {
     color: $colorGreenBtnText;
     background-color: $colorGreenBtnBackground;
     font-weight: 700;
@@ -55,17 +60,7 @@ $formInputBorderActive: #BA68C8;
     }
 }
 
-@mixin scaleIcon {
-    &:hover {
-        transform: scale(1.2);
-    }
-
-    &:active {
-        transform: scale(.8);
-    }
-}
-
-@mixin scaleLink {
+@mixin linkScale {
     &:hover {
         transform: scale(1.1);
         color: $colorTextHover;
@@ -91,7 +86,7 @@ $formInputBorderActive: #BA68C8;
 }
 
 .header {
-    margin-bottom: 25px;
+    margin: 18.5px 0 43.5px;
 
     &__container {
         display: flex;
@@ -143,12 +138,11 @@ $formInputBorderActive: #BA68C8;
         text-decoration: none;
         color: $colorText;
         display: block;
-        padding: 26px 0;
         font-weight: 500;
         font-size: 16px;
         line-height: 28px;
         transition: .1s linear;
-        @include scaleLink;
+        @include linkScale;
     }
 
     &__button {
@@ -202,7 +196,14 @@ $formInputBorderActive: #BA68C8;
         border: none;
         cursor: pointer;
         transition: .1s linear;
-        @include scaleIcon;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    
+        &:active {
+            transform: scale(.8);
+        }
     }
 
     &__img {
@@ -211,6 +212,10 @@ $formInputBorderActive: #BA68C8;
         object-fit: cover;
         pointer-events: none;
     }
+}
+
+.main {
+    margin-bottom: 150px;
 }
 
 .banner {
@@ -245,7 +250,7 @@ $formInputBorderActive: #BA68C8;
     }
 
     &__button {
-        @include greenBtnProperties;
+        @include buttonProperties;
         padding: 14.5px 41px;
         margin-right: 56px;
     }
@@ -269,6 +274,22 @@ $formInputBorderActive: #BA68C8;
             right: calc(100% + 8.5px);
             top: 50%;
             transform: translateY(-50%);
+        }
+
+        &:hover {
+            color: $colorLinkHover;
+
+            &::before {
+                border-left: 20px solid $colorLinkHover;
+            }
+        }
+
+        &:active {
+            color: $colorLinkActive;
+
+            &::before {
+                border-left: 20px solid $colorLinkActive;
+            }
         }
     }
 
@@ -333,7 +354,7 @@ $formInputBorderActive: #BA68C8;
     }
 
     &__button {
-        @include greenBtnProperties;
+        @include buttonProperties;
         display: block;
         text-transform: uppercase;
         padding: 14.5px 33.5px;
@@ -666,7 +687,7 @@ $formInputBorderActive: #BA68C8;
     }
 
     &__button {
-        @include greenBtnProperties;
+        @include buttonProperties;
         display: block;
         padding: 14.5px 30.5px;
         margin: 0 auto;
@@ -888,7 +909,7 @@ $formInputBorderActive: #BA68C8;
         border-radius: 8px;
         cursor: pointer;
         padding: 11px 19px;
-        transition: .1 linear;
+        transition: .1s linear;
     }
 
     &:hover {
@@ -1042,8 +1063,6 @@ $formInputBorderActive: #BA68C8;
 }
 
 .join {
-    margin-bottom: 150px;
-
     &__container {
         max-width: 1000px;
         background-color: $joinBackground;
@@ -1092,6 +1111,7 @@ $formInputBorderActive: #BA68C8;
     &__picture {
         width: 351px;
         height: 331px;
+
     }
 
     &__img {
@@ -1111,6 +1131,7 @@ $formInputBorderActive: #BA68C8;
 
     &__wrapper {
         display: flex;
+        column-gap: 15px;
         margin-bottom: 16px;
     }
 
@@ -1124,7 +1145,8 @@ $formInputBorderActive: #BA68C8;
 }
 
 .social {
-    width: 324px;
+    max-width: 309px;
+    margin-right: auto;
 
     &__wrap {
         display: flex;
@@ -1161,23 +1183,45 @@ $formInputBorderActive: #BA68C8;
     &__link {
         width: 40px;
         height: 40px;
-        @include scaleIcon;
-    }
+        background-color: $socialLinkBackground;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .1s linear;
 
-    &__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        pointer-events: none;
+        &>svg {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        &>svg>path {
+            transition: .1s linear;
+        }
+
+        &:hover {
+            background-color: $socialLinkBackgroundHover;
+
+            &>svg>path {
+                stroke: $colorLinkHover;
+            }
+        }
+
+        &:active {
+            background-color: $socialLinkBackgroundActive;
+
+            &>svg>path {
+                stroke: $colorLinkActive;
+            }
+        }
     }
 }
 
-.navigation {
-    width: 247px;
-
-    &:last-of-type {
-        width: 213px;
-    }
+.resource {
+    max-width: 232px;
+    margin-right: auto;
 
     &__title {
         color: $colorText;
@@ -1189,22 +1233,60 @@ $formInputBorderActive: #BA68C8;
 
     &__item {
         list-style: none;
+        margin-bottom: 13px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
     &__link {
         color: $colorText;
         font-weight: 400;
         font-size: 16px;
-        line-height: 35px;
+        line-height: 24px;
         text-decoration: none;
         display: block;
         transition: .1s linear;
-        @include scaleLink;
+        @include linkScale;
+    }
+}
+
+.legalstuff {
+    max-width: 198px;
+    margin-right: auto;
+
+    &__title {
+        color: $colorText;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 8px;
+    }
+
+    &__item {
+        list-style: none;
+        margin-bottom: 15px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        color: $colorText;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        text-decoration: none;
+        display: block;
+        transition: .1s linear;
+        @include linkScale;
     }
 }
 
 .form {
-    width: calc(100% - 213px - 247px - 324px);
+    width: calc(100% - 198px - 232px - 309px - 45px);
 
     &__title {
         color: $colorText;
@@ -1238,6 +1320,6 @@ $formInputBorderActive: #BA68C8;
 
     &__button {
         padding: 10px 20px;
-        @include greenBtnProperties;
+        @include buttonProperties;
     }
 }
