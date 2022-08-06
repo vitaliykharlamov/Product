@@ -411,15 +411,15 @@ $formInputBorderActive: #BA68C8;
     margin-bottom: 150px;
 
     &__container {
-        max-width: 1153px;
+        max-width: 1155px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        column-gap: 94px;
+        column-gap: 96px;
     }
 
     &__picture {
-        width: calc(100% - 486px - 94px);
+        width: calc(100% - 486px - 96px);
         max-height: 500px;
     }
 
@@ -496,11 +496,11 @@ $formInputBorderActive: #BA68C8;
     margin-bottom: 150.5px;
 
     &__container {
-        max-width: 1153px;
+        max-width: 1155px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        column-gap: 84px;
+        column-gap: 86px;
     }
 
     &__info {
@@ -548,7 +548,7 @@ $formInputBorderActive: #BA68C8;
     }
 
     &__picture {
-        width: calc(100% - 486px - 84px);
+        width: calc(100% - 486px - 86px);
         max-height: 451px;
     }
 
@@ -566,7 +566,7 @@ $formInputBorderActive: #BA68C8;
     padding-top: 52.5px;
 
     &__container {
-        max-width: 993px;
+        max-width: 995px;
     }
 
     &__title {
@@ -657,6 +657,14 @@ $formInputBorderActive: #BA68C8;
         right: calc(100% - 32px - 17px);
     }
 
+    &__wrap:nth-of-type(2n), &__wrap:nth-of-type(3n) {
+        margin-left: auto;
+    }
+
+    &__wrap:last-of-type {
+        margin-left: 0;
+    }
+
     &__button {
         @include greenBtnProperties;
         display: block;
@@ -669,7 +677,7 @@ $formInputBorderActive: #BA68C8;
     margin-bottom: 150px;
 
     &__container {
-        max-width: 1137.5px;
+        max-width: 1140px;
     }
 
     &__title {
@@ -770,7 +778,7 @@ $formInputBorderActive: #BA68C8;
     margin-bottom: 150px;
 
     &__container {
-        max-width: 1138.5px;
+        max-width: 1140px;
     }
 
     &__title {
@@ -1037,7 +1045,7 @@ $formInputBorderActive: #BA68C8;
     margin-bottom: 150px;
 
     &__container {
-        max-width: 998px;
+        max-width: 1000px;
         background-color: $joinBackground;
         border-radius: 32px;
         display: flex;
@@ -1098,7 +1106,7 @@ $formInputBorderActive: #BA68C8;
     margin-bottom: 46px;
 
     &__container {
-        max-width: 1139px;
+        max-width: 1140px;
     }
 
     &__wrapper {
