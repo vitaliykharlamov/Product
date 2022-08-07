@@ -86,7 +86,8 @@ $formInputBorderActive: #BA68C8;
 }
 
 .header {
-    margin: 18.5px 0 43.5px;
+    margin-bottom: 25px;
+    padding: 18.5px 0;
 
     &__container {
         display: flex;
@@ -261,6 +262,7 @@ $formInputBorderActive: #BA68C8;
         line-height: 24px;
         color: $colorLink;
         position: relative;
+        transition: .1s linear;
 
         &::before {
             content: '';
@@ -274,6 +276,7 @@ $formInputBorderActive: #BA68C8;
             right: calc(100% + 8.5px);
             top: 50%;
             transform: translateY(-50%);
+            transition: .1s linear;
         }
 
         &:hover {
@@ -1070,7 +1073,7 @@ $formInputBorderActive: #BA68C8;
         display: flex;
         align-items: center;
         column-gap: 20px;
-        padding: 14px 36px 0 51px;
+        padding: 14px 36px 14px 51px;
     }
 
     &__info {
@@ -1110,7 +1113,7 @@ $formInputBorderActive: #BA68C8;
 
     &__picture {
         width: 351px;
-        height: 331px;
+        height: 317px;
 
     }
 
@@ -1123,7 +1126,7 @@ $formInputBorderActive: #BA68C8;
 }
 
 .footer {
-    margin-bottom: 46px;
+    padding-bottom: 46px;
 
     &__container {
         max-width: 1140px;
